@@ -1,0 +1,242 @@
+:root {
+  --bg: #0b1020;
+  --card: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.14);
+
+  --text: #eaf0ff;
+  --muted: rgba(234, 240, 255, 0.75);
+
+  --accent: #6ee7ff;
+  --danger: #ff6b6b;
+  --ok: #7cff9b;
+
+  --radius: 16px;
+  --radius-sm: 12px;
+
+  --pad: 16px;
+  --gap: 16px;
+}
+
+/*  Base Reset  */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/*  Layout  */
+.container {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+header {
+  padding: 22px 0 10px;
+}
+header h1 {
+  margin: 0;
+}
+header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: 1fr;
+  padding: 14px 0 24px;
+}
+@media (min-width: 980px) {
+  .grid {
+    grid-template-columns: 380px 1fr;
+    align-items: start;
+  }
+}
+
+/*  Cards / Sections  */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--pad);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+/*  Form  */
+.row {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.row.two {
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.18);
+  color: var(--text);
+  outline: none;
+}
+
+input:focus {
+  border-color: rgba(110, 231, 255, 0.55);
+  box-shadow: 0 0 0 3px rgba(110, 231, 255, 0.12);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/*  Buttons  */
+button {
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  color: var(--text);
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    rgba(110, 231, 255, 0.35),
+    rgba(167, 139, 250, 0.25)
+  );
+  transition:
+    transform 0.08s ease,
+    filter 0.15s ease;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+button:active {
+  transform: translateY(1px);
+}
+
+button.secondary {
+  background: rgba(0, 0, 0, 0.18);
+  font-weight: 600;
+}
+
+.dangerTop {
+  margin-top: 12px;
+}
+
+/*  Table  */
+.tableWrap {
+  overflow: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 820px;
+}
+
+thead th {
+  text-align: left;
+  padding: 12px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.12);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.92rem;
+  vertical-align: top;
+}
+
+/* Edit/Delete */
+tbody td button {
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+tbody td button + button {
+  margin-left: 8px;
+  border-color: rgba(255, 107, 107, 0.45);
+}
+
+/*  Summary  */
+.summary {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 720px) {
+  .summary {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.sumBox {
+  background: rgba(0, 0, 0, 0.16);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.sumBox .label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.sumBox .value {
+  margin: 6px 0 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.sumBox.highlight {
+  border-color: rgba(124, 255, 155, 0.35);
+}
+
+/*  Messages / Footer  */
+.msg {
+  min-height: 18px;
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.footer {
+  padding: 8px 0 22px;
+  color: var(--muted);
+}
